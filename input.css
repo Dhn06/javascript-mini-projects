@@ -1,0 +1,76 @@
+@import "tailwindcss";
+@layer components{
+    .navbar{ 
+        @apply bg-sky-950 text-white p-4 flex flex-col md:flex-row justify-between items-center 
+        h-screen md:h-32 md:fixed z-1 inset-x-0 shadow-lg;
+    }
+    .navbar a {
+        @apply hover:text-slate-950 hover:bg-gray-300 px-4 py-2 hover:font-bold
+        transition-colors duration-300 rounded-md;
+    }
+
+    .header{
+        @apply flex flex-col items-center justify-center text-center p-8 bg-gray-100
+        shadow-lg h-screen gap-y-4;
+    }
+    .header img{
+        @apply rounded-full w-64 h-64 border-y-8 bg-blend-lighten;
+    }
+    .header h1{
+        @apply text-4xl font-bold uppercase text-slate-950;
+    }
+    .header p{ 
+        @apply text-lg text-gray-700 max-w-2xl mx-auto md:text-lg;
+    }
+
+    .projects{
+        @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-8;
+    }
+    .project{
+        @apply bg-white hover:bg-slate-950 hover:text-slate-100 rounded-lg shadow-md
+        hover:shadow-lg transition-shadow duration-300;
+    }
+
+}
+@layer base{
+    h2{
+        @apply text-3xl font-bold text-sky-800 mb-4 text-center capitalize;
+    }
+    #about div{
+        @apply bg-sky-950 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 p-8
+        text-white rounded-t-3xl shadow-lg text-xl;
+    }
+    .project a{
+        @apply text-amber-800 hover:border-4 visited:border-b-gray-800 font-bold transition-colors duration-300;
+    } 
+
+    form{
+        @apply max-w-4/5 mx-auto bg-white p-8 rounded-lg shadow-2xl;
+    }
+
+    form label,form input,form textarea {
+        @apply block text-gray-600 font-bold mb-4 w-full;
+    }
+
+    form input,form textarea {
+        @apply border border-gray-300 p-2 rounded-md mb-4 focus:outline-none focus:ring-2
+        focus:ring-orange-500;
+    }
+
+    form button {
+        @apply bg-sky-600 text-white font-bold py-2 px-2 rounded-md hover:bg-orange-600 transition-colors
+        duration-300 cursor-pointer;
+    }
+
+    #contact{
+        @apply bg-sky-950 text-white p-8 rounded-t-3xl;
+    }
+
+    #contact h2{
+        @apply text-slate-100;
+    }
+
+    .clock{
+        @apply h-screen bg-amber-500;
+    }
+}

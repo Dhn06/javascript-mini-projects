@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: normal;
+        }
+
+        body {
+            background: linear-gradient(60deg, #08001f, #30197d, #4f2a6f, #30193f, #08001f);
+            color: burlywood;
+            height: 100vh;
+        }
+
+        main {
+            max-width: 600px;
+            min-height: 70vh;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            border: 2px solid burlywood;
+            border-radius: 20px;
+            box-shadow: #08001f 0px 0px 20px 5px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            text-transform: capitalize;
+            color: transparent;
+            background-image: linear-gradient(60deg, #f79533, #f37055, #ef4e7b,
+                    #a166ab, #5073b8, #1098ad, #07b39b, #6fba82 50%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        input {
+            color : rgb(255, 255, 255);
+            width: 70%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 3.5px solid burlywood;
+            outline: none;
+            font-size: 1.2rem;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 0 15px 0 10px;
+            cursor: pointer;
+            border: 3.5px solid burlywood;
+            outline: none;
+            font-size: 1.2rem;
+            text-transform: capitalize;
+            font-weight: bold;
+            cursor: pointer;
+            background-image: linear-gradient(60deg, #f79533, #f37055, #ef4e7b,#a166ab, #5073b8, #1098ad, #07b39b, #6fba82 50%);
+            transition: all 0.3s ease-in-out;
+        }
+        button:hover {
+            background-image: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82 50%);
+            font-weight: bolder;
+            box-shadow: 0px 0px 20px 5px #08001f;
+            color: #30197d;
+        }
+
+        ul {
+            min-height: 200px;
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 0;
+            margin: 0;
+            width: 300px;
+            background: transparent;
+        }
+        ul li {
+            text-transform: capitalize;
+            list-style: none;
+            margin: 10px 0;
+            padding: 10px;
+            column-gap: 50px;
+            border-radius: 10px;
+            border: 2px solid burlywood;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section style="margin-bottom: 20px;">
+            <h2>A Todo Application</h2>
+            <input type="text" name="text" id="todo-input" placeholder="Enter a new todo...">
+            <button type="button" id="add-task-btn">add task</button>
+        </section>
+        <section>
+            <h2 class="text-right justify-items-end">Tasks List</h2>
+            <ul id="todo-list">
+                <li class="rem">task list is empty</li>
+            </ul>
+        </section>
+    </main>
+</body>
+<script>
+    const taskInput = document.getElementById('todo-input');
+    const addTaskButton = document.getElementById('add-task-btn');
+    const taskList = document.getElementById('todo-list');
+    addTaskButton.addEventListener('click', () => {
+        const taskText = taskInput.value.trim();
+        if (taskText !== '') {
+            const emptyMessage = document.querySelector('.rem');
+            if (emptyMessage) {
+                taskList.removeChild(emptyMessage);
+            }
+            const listItem = document.createElement('li');
+            const span = document.createElement('span');
+            const btn = document.createElement('button');
+            span.textContent = taskText;
+            btn.textContent = 'Delete';
+            listItem.appendChild(span);
+            listItem.appendChild(btn);
+            taskList.appendChild(listItem);
+            btn.addEventListener('click', () => {
+                taskList.removeChild(listItem);
+                if (taskList.children.length === 0) {
+                    const emptyLi = document.createElement('li');
+                    emptyLi.className = 'rem';
+                    emptyLi.textContent = 'task list is empty';
+                    taskList.appendChild(emptyLi);
+                }
+            });
+            taskInput.value = '';
+        }
+    });
+    taskInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            addTaskButton.click();
+        }
+    });
+
+    
+</script>
+
+</html>

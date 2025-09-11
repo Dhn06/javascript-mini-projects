@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Timer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 flex items-center justify-center min-h-screen">
+
+  <div class="bg-amber-900 shadow-lg rounded-2xl p-8 w-full max-w-md text-center">
+    <h1 class="text-2xl font-bold mb-6 text-black-800">Countdown Timer</h1>
+
+    <!-- Input field -->
+    <input id="targetDate" type="datetime-local" 
+      class="border rounded-lg px-4 py-2 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+    
+    <!-- Start button -->
+    <button onclick="startCountdown()" 
+      class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg w-full mb-6">
+      Start Countdown
+    </button>
+
+    <!-- Countdown display -->
+    <div id="countdown" class="grid grid-cols-4 gap-4 text-center text-gray-700">
+      <div>
+        <p id="days" class="text-3xl font-bold">0</p>
+        <span class="text-sm">Days</span>
+      </div>
+      <div>
+        <p id="hours" class="text-3xl font-bold">0</p>
+        <span class="text-sm">Hours</span>
+      </div>
+      <div>
+        <p id="minutes" class="text-3xl font-bold">0</p>
+        <span class="text-sm">Minutes</span>
+      </div>
+      <div>
+        <p id="seconds" class="text-3xl font-bold">0</p>
+        <span class="text-sm">Seconds</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="./count.js"></script>
+
+</body>
+</html>

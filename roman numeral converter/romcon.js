@@ -18,8 +18,8 @@
       const num = parseInt(document.getElementById("numberInput").value.trim(), 10);
       const output = document.getElementById("output");
 
-      if (isNaN(num) || num < 1 || num > 3999) {
-        output.textContent = "⚠️ Please enter a valid number between 1 and 3999.";
+      if (isNaN(num) || num < 1 || num > 5000) {
+        output.textContent = " Please enter a valid number between 1 and 3999.";
         output.className = "mt-5 text-center text-red-500 font-medium";
         return;
       }
@@ -53,7 +53,7 @@
         if (two) { num += two.value; i += 2; }
         else if (one) { num += one.value; i++; }
         else { 
-          output.textContent = "⚠️ Invalid Roman numeral.";
+          output.textContent = " Invalid Roman numeral.";
           output.className = "mt-5 text-center text-red-500 font-medium";
           return;
         }
